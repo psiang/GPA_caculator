@@ -4,7 +4,7 @@ import pandas as pd
 
 def get_table(path):
     # 设置网页地址
-    urls = path + '\\Svlt_QueryStuScore.html'
+    urls = path + '\\武汉大学教务系统_files\\Svlt_QueryStuScore.html'
     # 解析网页
     wb_data = open(urls, 'r').read()
     soup = BeautifulSoup(wb_data, 'lxml')
