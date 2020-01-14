@@ -1,9 +1,10 @@
 from bs4 import BeautifulSoup
 import pandas as pd
 
-if __name__ == '__main__':
+
+def get_table(path):
     # 设置网页地址
-    urls = '.\\source\\武汉大学教务系统_files\\Svlt_QueryStuScore.html'
+    urls = path + '\\Svlt_QueryStuScore.html'
     # 解析网页
     wb_data = open(urls, 'r').read()
     soup = BeautifulSoup(wb_data, 'lxml')
@@ -57,18 +58,4 @@ if __name__ == '__main__':
                  '学分': credit, '教师名': teachers, '授课学院': faculties, '学习类型': learn_types,
                  '学年': years, '学期': semesters, '成绩': scores}
     df_table = pd.DataFrame(dic_table)
-    '''data = {'Name': ['Tom', 'Jack', 'Steve', 'Ricky'], 'Age': [28, 34, 29, 42]}
-    df = pd.DataFrame(data, index=['rank1', 'rank2', 'rank3', 'rank4'])'''
-
-    print(names)
-    print(types)
-    print(general_types)
-    print(general_attrs)
-    print(credit)
-    print(teachers)
-    print(faculties)
-    print(learn_types)
-    print(years)
-    print(semesters)
-    print(scores)
-    print(df_table)
+    return df_table
